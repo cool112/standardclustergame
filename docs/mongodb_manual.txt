@@ -1,0 +1,59 @@
+mongodb manual
+两种方式初始化mongodb:
+一\手动创建
+1\db.createUser({
+user:"seg",
+pwd:"seg",
+customData:{},
+roles:[
+"readWrite"
+]
+})
+2\use gamedb
+3\db.createCollection("commonlog", {
+capped: true,
+autoIndexId: false,
+size: 1073741824,
+max: 1000000                        
+})
+4\db.commonlog.createIndex({
+uid:1,
+deviceId:1,
+app:1
+},{})
+5\db.commonlog.createIndex({
+time:-1
+})
+6\db.createCollection("player")
+7\db.player.createIndex({
+uid:1,
+deviceId:1,
+app:1
+},{unique:true})
+8\db.createCollection("gameinstance", {
+capped: true,
+autoIndexId: true,
+size: 25600000,
+max: 100000                        
+})
+9\db.createCollection("user_session", {
+capped: true,
+autoIndexId: true,
+size: 2560000,
+max: 10000                        
+})
+10\db.user_session.createIndex({
+userId:1
+},{unique:true})
+11\
+db.user_session.createIndex({
+lastModify:-1
+},{expireAfterSeconds:1800})
+
+
+二\导入gamedb
+mongorestore --drop --restoreDbUsersAndRoles gamedb
+
+备注:
+导出工具
+mongodump /d gamedb --dumpDbUsersAndRoles -o [outputfile]

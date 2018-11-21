@@ -1,0 +1,46 @@
+#log configure
+logging: 
+  file: log/${spring.application.name}_log
+  level: 
+    ROOT: INFO
+    com.garow: DEBUG
+  config: http://localhost:8888/${spring.application.name}/${spring.profiles.active}/master/logback.xml
+  
+#mongodb configure
+spring: 
+  data: 
+    mongodb: 
+      uri: mongodb://seg:seg@localhost:27017/gamedb
+  cloud: 
+    config: 
+      label: master
+
+
+#eureka configure
+eureka: 
+  server: localhost:8761
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 500
+  ConnectTimeout: 500
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
+  
+#actuator configure
+management: 
+  endpoints:
+    web: 
+      exposure: 
+        include: "*"
+    shutdown:
+      enabled: true
+    health:
+      sensitive: false
+
+#tcp route configure
+route: 
+  apps: 
+    - tcpgateway
+    - notify

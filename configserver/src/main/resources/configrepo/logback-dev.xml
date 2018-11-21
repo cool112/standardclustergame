@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date{YYYY-MM-dd HH:mm:ss} %level [%thread] %logger{10}
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE_INFO"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILE}-info</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_FILE}-info-%d{yyyy-MM-dd}.%i.zip
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%date{YYYY-MM-dd HH:mm:ss} %level [%thread] %logger{10}
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE_ERROR"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_FILE}-error</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_FILE}-error-%d{yyyy-MM-dd}.%i.zip
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<encoder>
+			<pattern>%date{YYYY-MM-dd HH:mm:ss} %level [%thread] %logger{10}
+				%msg%n</pattern>
+		</encoder>
+	</appender>
+	<root level="info">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE_INFO" />
+		<appender-ref ref="FILE_ERROR" />
+	</root>
+
+	<logger name="org.springframework" level="INFO"
+		additivity="true">
+	</logger>
+
+	<logger name="org.apache" level="INFO" additivity="true">
+	</logger>
+</configuration>

@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package com.garow.proto.common;
+/*
+通用返回
+*/
+message Ack{
+int32 errCode = 1;
+int32 proId = 2;
+}

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.garow.logserver.generator.mapper.CommonLogMapper" >
+  <resultMap id="BaseResultMap" type="com.garow.logserver.generator.entity.CommonLog" >
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="device_id" property="deviceId" jdbcType="VARCHAR" />
+    <result column="log_type" property="logType" jdbcType="INTEGER" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="BIGINT" />
+    <result column="app" property="app" jdbcType="VARCHAR" />
+    <result column="chan_id" property="chanId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    uid, device_id, log_type, msg, time, app, chan_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.garow.logserver.generator.entity.CommonLogExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from tb_common_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.garow.logserver.generator.entity.CommonLogExample" >
+    delete from tb_common_log
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.garow.logserver.generator.entity.CommonLog" >
+    insert into tb_common_log (uid, device_id, log_type, 
+      msg, time, app, chan_id
+      )
+    values (#{uid,jdbcType=VARCHAR}, #{deviceId,jdbcType=VARCHAR}, #{logType,jdbcType=INTEGER}, 
+      #{msg,jdbcType=VARCHAR}, #{time,jdbcType=BIGINT}, #{app,jdbcType=VARCHAR}, #{chanId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.garow.logserver.generator.entity.CommonLog" >
+    insert into tb_common_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="deviceId != null" >
+        device_id,
+      </if>
+      <if test="logType != null" >
+        log_type,
+      </if>
+      <if test="msg != null" >
+        msg,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="app != null" >
+        app,
+      </if>
+      <if test="chanId != null" >
+        chan_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceId != null" >
+        #{deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="logType != null" >
+        #{logType,jdbcType=INTEGER},
+      </if>
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=BIGINT},
+      </if>
+      <if test="app != null" >
+        #{app,jdbcType=VARCHAR},
+      </if>
+      <if test="chanId != null" >
+        #{chanId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_common_log
+    <set >
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceId != null" >
+        device_id = #{record.deviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logType != null" >
+        log_type = #{record.logType,jdbcType=INTEGER},
+      </if>
+      <if test="record.msg != null" >
+        msg = #{record.msg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=BIGINT},
+      </if>
+      <if test="record.app != null" >
+        app = #{record.app,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chanId != null" >
+        chan_id = #{record.chanId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_common_log
+    set uid = #{record.uid,jdbcType=VARCHAR},
+      device_id = #{record.deviceId,jdbcType=VARCHAR},
+      log_type = #{record.logType,jdbcType=INTEGER},
+      msg = #{record.msg,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=BIGINT},
+      app = #{record.app,jdbcType=VARCHAR},
+      chan_id = #{record.chanId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <insert id="insertBatch"
+		parameterType="com.garow.logserver.generator.entity.CommonLog">
+		insert into tb_common_log (uid, device_id, log_type,
+		msg, time, app,
+		chan_id
+		)
+		values
+		<foreach collection="logList" item="model" separator=",">
+			(
+			#{model.uid,jdbcType=VARCHAR},
+			#{model.deviceId,jdbcType=VARCHAR},
+			#{model.logType,jdbcType=INTEGER},
+			#{model.msg,jdbcType=VARCHAR},
+			#{model.time,jdbcType=BIGINT}, #{model.app,jdbcType=VARCHAR},
+			#{model.chanId,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+</mapper>

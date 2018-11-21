@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package com.garow.proto.push;
+/*
+* palyers' message
+*/
+message Message{
+string from = 1;
+string name = 2;
+string msg = 3;
+int64 time = 4;
+}

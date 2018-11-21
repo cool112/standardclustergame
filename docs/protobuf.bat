@@ -1,0 +1,1 @@
+protoc -I=..\tcpgateway\src\main\resources\proto --java_out=..\tcpgateway\src\main\java ..\tcpgateway\src\main\resources\proto\auth.proto

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"gamedb.player"},{"v":2,"unique":true,"key":{"uid":1.0,"deviceId":1.0,"app":1.0},"name":"uid_1_deviceId_1_app_1","ns":"gamedb.player"}],"uuid":"e7d7d4daeb4046a3aa54f6fe2bca26bd"}

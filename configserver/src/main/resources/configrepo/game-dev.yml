@@ -1,0 +1,16 @@
+server:
+  port: 9000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.server}/eureka/
+  instance:
+    preferIpAddress: true
+
+game:     
+  activity: 
+    enable: true
+    itemConf: reward/item.json
+    logindayConf: activity/loginday.json
+    logindayReset: 30

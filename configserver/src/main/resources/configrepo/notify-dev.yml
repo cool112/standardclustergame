@@ -1,0 +1,19 @@
+server:
+  port: 12000
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.server}/eureka/
+
+netty: 
+  server: 
+    listen: 4445
+    backlog: 10
+    reuse: true
+    sessionTimeout: 1800000
+    loNetPrefix: 192.169

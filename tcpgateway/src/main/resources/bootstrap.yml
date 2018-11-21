@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tcpgateway
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+encrypt:
+  failOnError: false
+  
+netty: 
+  server: 
+    hostname: game.cdjm.com

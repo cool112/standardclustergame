@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package com.garow.proto.transfer;
+/*
+服务器内部通讯包
+*/
+message ToServer{
+string sessionId = 1;
+bytes data = 2;
+}

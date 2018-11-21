@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package com.garow.proto.transfer;
+/*
+转发给客户端的包
+cmd:0=转发 1=关闭 2=转发并关闭
+*/
+message ToClient{
+int32 cmd = 1;
+repeated string sessionIds = 2;
+bytes data = 3;
+}

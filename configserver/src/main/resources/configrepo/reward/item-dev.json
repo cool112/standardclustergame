@@ -1,0 +1,10 @@
+{
+	"currency": [
+		{
+			"id": 1,"type":"diamond","value":"100"
+		},
+		{
+			"id": 2,"type":"diamond","value":"200"
+		}
+	]
+}

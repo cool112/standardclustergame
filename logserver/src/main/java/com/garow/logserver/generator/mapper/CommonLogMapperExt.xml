@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.garow.logserver.generator.mapper.CommonLogMapper">
+	<insert id="insertBatch"
+		parameterType="com.garow.logserver.generator.entity.CommonLog">
+		insert into tb_common_log (uid, device_id, log_type,
+		msg, time, app,
+		chan_id
+		)
+		values
+		<foreach collection="logList" item="model" separator=",">
+			(
+			#{model.uid,jdbcType=VARCHAR},
+			#{model.deviceId,jdbcType=VARCHAR},
+			#{model.logType,jdbcType=INTEGER},
+			#{model.msg,jdbcType=VARCHAR},
+			#{model.time,jdbcType=BIGINT}, #{model.app,jdbcType=VARCHAR},
+			#{model.chanId,jdbcType=VARCHAR}
+			)
+		</foreach>
+	</insert>
+</mapper>

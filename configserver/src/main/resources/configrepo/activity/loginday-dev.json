@@ -1,0 +1,12 @@
+{
+	"test": [
+		{
+			"category": "currency",
+			"id": 1
+		},
+		{
+			"category": "currency",
+			"id": 2
+		}
+	]
+}

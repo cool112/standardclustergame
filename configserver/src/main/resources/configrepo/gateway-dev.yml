@@ -1,0 +1,15 @@
+server:
+  port: 10000
+
+sidecar:
+  port: 8000
+
+eureka:
+  instance:
+    preferIpAddress: true
+   # hostname: gateway
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.server}/eureka/

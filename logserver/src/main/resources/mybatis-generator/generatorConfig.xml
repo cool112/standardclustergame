@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="F:\.m2\repository\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.169.1.198:3306/db_log_dev?useUnicode=true&amp;characterEncoding=utf8" userId="remote"
+                        password="jm123456"/>
+
+        <javaModelGenerator targetPackage="com.garow.logserver.generator.entity"
+                            targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.garow.logserver.generator.mapper"
+                         targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.garow.logserver.generator.mapper"
+                             targetProject=".\src\main\java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+			   <columnRenamingRule searchString="^D_"
+                                replaceString=""/>
+								</table>
+								 <table tableName="tb_common_log" domainObjectName="CommonLog"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table> 
+
+        <!-- <table tableName="tb_svn_groups" domainObjectName="SvnGroup"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table>  -->
+		<!-- <table tableName="tb_svn_group_privileges" domainObjectName="SvnGroupPrivileges" -->
+               <!-- enableCountByExample="false" enableUpdateByExample="true" -->
+               <!-- enableDeleteByExample="true" enableSelectByExample="true" -->
+               <!-- selectByExampleQueryId="false"> -->
+        <!-- </table> -->
+		<!-- <table tableName="tb_svn_repositories" domainObjectName="SvnRepository" -->
+               <!-- enableCountByExample="false" enableUpdateByExample="true" -->
+               <!-- enableDeleteByExample="true" enableSelectByExample="true" -->
+               <!-- selectByExampleQueryId="false"> -->
+        <!-- </table> -->
+		<!-- <table tableName="tb_svn_users_groups" domainObjectName="SvnUserGroup" -->
+               <!-- enableCountByExample="false" enableUpdateByExample="true" -->
+               <!-- enableDeleteByExample="true" enableSelectByExample="true" -->
+               <!-- selectByExampleQueryId="false"> -->
+        <!-- </table> -->
+		<!-- <table tableName="tb_svn_user_privileges" domainObjectName="SvnUserPrivileges" -->
+               <!-- enableCountByExample="false" enableUpdateByExample="true" -->
+               <!-- enableDeleteByExample="true" enableSelectByExample="true" -->
+               <!-- selectByExampleQueryId="false"> -->
+        <!-- </table> -->
+		<!-- <table tableName="tb_svn_read_log" domainObjectName="SvnReadLog"
+               enableCountByExample="false" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="false">
+        </table> -->
+		<!-- <table tableName="tb_svn_read_log_check_point" domainObjectName="SvnReadLogCheckPoint" -->
+               <!-- enableCountByExample="false" enableUpdateByExample="true" -->
+               <!-- enableDeleteByExample="true" enableSelectByExample="true" -->
+               <!-- selectByExampleQueryId="false"> -->
+        <!-- </table> -->
+    </context>
+</generatorConfiguration>

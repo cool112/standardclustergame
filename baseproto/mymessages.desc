@@ -1,0 +1,11 @@
+
+_
+	ack.protocom.garow.proto.common"5
+Ack
+ErrCode (RErrCode
+ProId (RProIdbproto3
+M
+
+auth.protocom.garow.proto.auth"$
+Auth
+	sessionId (	R	sessionIdbproto3

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package com.garow.proto.conn;
+/*
+* 客户端shang线通知
+*/
+message OnlineEvent{
+int32 type = 1;
+}

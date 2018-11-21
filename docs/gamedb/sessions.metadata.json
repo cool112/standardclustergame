@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"gamedb.sessions"},{"v":2,"key":{"expireAt":1},"name":"expireAt","ns":"gamedb.sessions","expireAfterSeconds":{"$numberLong":"0"}}],"uuid":"0e1f4adec10d44d98ec4d8a02d3b2908"}

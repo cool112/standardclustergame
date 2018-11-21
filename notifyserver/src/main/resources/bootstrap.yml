@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: notify
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+encrypt:
+  failOnError: false

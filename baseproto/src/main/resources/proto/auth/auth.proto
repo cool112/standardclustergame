@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package com.garow.proto.auth;
+/*
+鉴权
+*/
+message Auth{
+string sessionId = 1;
+}

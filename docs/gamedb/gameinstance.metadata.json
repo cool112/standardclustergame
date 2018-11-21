@@ -1,0 +1,1 @@
+{"options":{"capped":true,"size":25600000,"max":100000,"autoIndexId":true},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"gamedb.gameinstance"}],"uuid":"d9c6af1075e04f1183e9f72ae6475cc4"}

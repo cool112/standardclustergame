@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package com.garow.proto.transfer;
+/*
+* 客户端提供一致与路由一致的主机名
+*/
+message Knock{
+string clientHost = 1;
+}

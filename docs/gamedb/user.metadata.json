@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"gamedb.user"},{"v":2,"key":{"uid":1,"deviceId":1,"players":1},"name":"uid_1_deviceId_1_players_1","ns":"gamedb.user"},{"v":2,"unique":true,"key":{"deviceId":1},"name":"deviceId","ns":"gamedb.user"}],"uuid":"eac3b298d8ff4642be0a1e26e01eb34f"}
